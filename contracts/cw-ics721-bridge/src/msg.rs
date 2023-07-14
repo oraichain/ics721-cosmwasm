@@ -1,5 +1,5 @@
 use cosmwasm_schema::{cw_serde, QueryResponses};
-use cosmwasm_std::{Addr, IbcTimeout, WasmMsg};
+use cosmwasm_std::{IbcTimeout, WasmMsg};
 use cw721_proxy_derive::cw721_proxy;
 use cw_cii::ContractInstantiateInfo;
 
@@ -143,7 +143,7 @@ pub enum QueryMsg {
     /// Gets a list of classID as key (from
     /// NonFungibleTokenPacketData) and cw721 contract as value
     /// (instantiated for that classID).
-    #[returns(Vec<(ClassId, Addr)>)]
+    #[returns(Vec<(ClassId, cosmwasm_std::Addr)>)]
     NftContracts {
         start_after: Option<ClassId>,
         limit: Option<u32>,
